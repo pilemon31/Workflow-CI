@@ -51,7 +51,7 @@ jobs:
           mlflow models build-docker \
           --model-uri "runs:/${RUN_ID}/model" \
           --name "telco-churn-model" \
-          --env-manager local
+          --env-manager virtualenv
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
