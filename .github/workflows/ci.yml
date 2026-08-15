@@ -46,10 +46,10 @@ jobs:
       - name: Build Docker image from MLflow model
         working-directory: MLProject
         run: |
+          echo "Building docker image for RUN_ID=${RUN_ID}"
           mlflow models build-docker \
             --model-uri "runs:/${RUN_ID}/model" \
-            --name "telco-churn-model" \
-            --enable-mlserver
+            --name "telco-churn-model"
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
