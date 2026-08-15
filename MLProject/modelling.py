@@ -48,7 +48,16 @@ def main():
         mlflow.log_metric("recall", recall_score(y_test, y_pred))
         mlflow.log_metric("f1_score", f1_score(y_test, y_pred))
 
-        mlflow.sklearn.log_model(model, "model")
+        mlflow.sklearn.log_model(
+            model,
+            "model",
+            pip_requirements=[
+                "mlflow==2.19.0",
+                "scikit-learn==1.5.2",
+                "pandas==2.2.3",
+                "pyarrow==16.1.0",  
+                ],
+        )
         print("CI training run selesai.")
 
 
